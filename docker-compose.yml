@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  node:
+    build: 
+      context: .
+      args:
+        SHOPIFY_API_KEY: $${SHOPIFY_API_KEY}
+    environment:
+      - SHOPIFY_API_SECRET=${SHOPIFY_API_SECRET}
+      - SCOPES=${SCOPES}
+      - HOST=${HOST}
+      - PORT=${PORT}
+      - BACKEND_PORT=${BACKEND_PORT}
+    ports:
+      - "${PORT}:${BACKEND_PORT}"
